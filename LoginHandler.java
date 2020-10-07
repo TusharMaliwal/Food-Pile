@@ -25,14 +25,19 @@ public class LoginHandler{
                     if(password==result.getString("password"))
                     {
                         System.out.println("Login succesful");
+                        break;
                     }
                     else
+                    {
                         System.out.println("The password entered is wrong");
-                    flag=1;
+                        break;
+                    }
+                    
                 }
+                flag=1;
+            }
                 if(flag==0)
                     System.out.println("The username entered is not correct");    
-            }
         
         }
 
