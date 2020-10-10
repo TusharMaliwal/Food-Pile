@@ -1,0 +1,2 @@
+create table client (name varchar(30),username varchar(20) primary key,password varchar(20));
+create table inventory (name varchar(20),category varchar(20),quantity varchar(20),threshold varchar(20));
