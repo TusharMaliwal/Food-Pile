@@ -1,0 +1,18 @@
+create table client (fname varchar(20),lname varchar(20),username varchar(20) primary key,password varchar(20));
+create table product(productID varchar(20) primary key,threshold int,price int,category varchar(20),name varchar(20));
+create table inventory(username varchar(20),productID varchar(20),quantity int);
+Insert into product values ("10000","100","40","Biscuit","Oreo");
+Insert into product values ("10001","30","28","Biscuit","Hide and Seek");
+Insert into product values ("10002","45","20","Juice","Real Mixed Fruit");
+Insert into product values ("10003","10","110","Energy Drink","Red Bull");
+Insert into product values ("10004","200","5","Sweets","Kaju Katli");
+Insert into product values ("10005","250","6","Sweets","Besan Ladoo");
+Insert into product values ("10006","12","45","Namkeen","Moong Dal");
+Insert into product values ("10007","10","50","Namkeen","Bhujiya");
+Insert into product values ("10008","30","28","Bread","White Bread");
+Insert into product values ("10009","30","30","Bread","Brown Bread");
+Insert into product values ("10010","25","10","Chips","Lays");
+Insert into product values ("10011","25","10","Chips","Bingo");
+Insert into client values ("Tushar","Maliwal","tusharmaliwal","0000");
+Insert into client values ("Shubham","Prasad","suviwilson","2000");
+Insert into client values ("Shreshth","Gilhotra","shreshth-12","2020");
