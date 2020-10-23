@@ -13,7 +13,7 @@ public class LoginResponse extends Response {
         this.username = username;
     }
 
-    public String getUserId() {
+    public String getUsername() {
         return username;
     }
 
