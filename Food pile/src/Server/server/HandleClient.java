@@ -9,15 +9,12 @@ import common.responses.Response;
 import common.responses.ResponseCode;
 import common.responses.auth.LoginResponse;
 import common.responses.auth.SignupResponse;
-import common.responses.Funct.AddItemsResponse;
 
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 
 public class HandleClient implements Runnable {
@@ -28,13 +25,18 @@ public class HandleClient implements Runnable {
     private final Connection connection;
     private boolean isLoggedIn;
 
-    private String id;
+    private String username;
 
-    public HandleClient
-    (Socket socket,Connection connection){
+    public HandleClient(Socket socket,Connection connection){
         this.socket = socket;
         this.connection = connection;
         this.isLoggedIn = false;
+        try {
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public void run() {
@@ -47,9 +49,8 @@ public class HandleClient implements Runnable {
                     this.sendReponse(res);
                     if(res.getCode() == ResponseCode.SUCCESS){
                         isLoggedIn = true;
-                        this.id = res.getUserId();
+                        this.username = res.getUsername();
                         System.out.println(res+"Just logged in.");
-                        UserRequestHandler.setAval(connection,id,true);
                         break;
                     }
                 }
@@ -77,8 +78,6 @@ public class HandleClient implements Runnable {
             }
         }
 
-
-
         while (true){
             try {
                 Request req = (Request) this.getRequest();
@@ -88,11 +87,6 @@ public class HandleClient implements Runnable {
             }
             catch (Exception e){
                 System.out.println("User is signing off.");
-                try {
-                    UserRequestHandler.setAval(connection,id,false);
-                } catch (SQLException e2) {
-                    e2.printStackTrace();
-                }
                 return;
             }
         }
