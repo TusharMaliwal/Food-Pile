@@ -83,6 +83,18 @@ public class Client {
                         objectOutputStream.flush();
                         Response res = (CheckAlertResponse) objectInputStream.readObject();
                         System.out.println(res);
+                        if(res.getCode()==ResponseCode.ALERT) {
+                            try {
+                                String filePath = "alert_audio.wav";
+                                SimpleAudioPlayer audioPlayer = new SimpleAudioPlayer(filePath);
+                                audioPlayer.play();
+                                Thread.sleep(5000);
+                                audioPlayer.stop();
+                            } catch (Exception ex) {
+                                System.out.println("Error with playing sound.");
+                                ex.printStackTrace();
+                            }
+                        }
                     }
                 } catch (IOException | ClassNotFoundException | InterruptedException e) {
                     e.printStackTrace();
