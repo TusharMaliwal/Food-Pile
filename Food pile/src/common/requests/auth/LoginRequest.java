@@ -1,6 +1,5 @@
 package common.requests.auth;
 
-
 import common.requests.Request;
 
 public class LoginRequest extends Request {

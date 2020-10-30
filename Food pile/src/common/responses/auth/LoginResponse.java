@@ -17,6 +17,7 @@ public class LoginResponse extends Response {
         return username;
     }
 
+
     @Override
     public String toString() {
         return "LoginResponse{" +
