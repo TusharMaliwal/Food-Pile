@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="469.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_display">
+      <Label fx:id="headLabel" layoutX="222.0" layoutY="21.0" text="Display!">
+         <font>
+            <Font name="System Bold Italic" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="priceButton" layoutX="213.0" layoutY="158.0" mnemonicParsing="false" onAction="#priceListener" text="Display by Price">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="quantityButton" layoutX="194.0" layoutY="248.0" mnemonicParsing="false" onAction="#quantityListener" text="Display by Quantity">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+</AnchorPane>

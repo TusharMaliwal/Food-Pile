@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_additem">
+
+      <Label fx:id="headLabel" layoutX="86.0" layoutY="26.0" text="To add items enter the following details:-">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameLabel" layoutX="166.0" layoutY="107.0" text="Username:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="productidLabel" layoutX="166.0" layoutY="151.0" text="Product Id:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantityLabel" layoutX="170.0" layoutY="190.0" text="Quantity:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameTextField" layoutX="256.0" layoutY="105.0" promptText="Enter Username" />
+      <TextField fx:id="productidTextField" layoutX="256.0" layoutY="149.0" promptText="Enter Product Id" />
+      <TextField fx:id="quantityTextField" layoutX="256.0" layoutY="188.0" promptText="Enter Quantity" />
+      <Button fx:id="submitButton" layoutX="254.0" layoutY="250.0" mnemonicParsing="false" onAction="#submitListener" prefHeight="34.0" prefWidth="109.0" text="Submit">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+</AnchorPane>
