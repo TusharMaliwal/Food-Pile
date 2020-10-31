@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.io.IOException;
 import java.util.Collections;
 
+import common.requests.Charts.BarChart;
 import common.requests.auth.SignupRequest;
+import common.responses.Charts.BarChartResponse;
 import common.responses.Funct.AddItemsResponse;
 import common.responses.Funct.CheckAlertResponse;
 import common.responses.Funct.DeleteItemResponse;
@@ -103,8 +105,8 @@ public class UserRequestHandler {
 
         public static DeleteItemResponse delete (DeleteItem req,Connection connection) {
 
-                String query = "Delete from inventory where productID = " +req.getProductID()+
-                        " and username = "+req.getUsername()+ "";
+                String query = "Delete from inventory where productID = '" +req.getProductID()+
+                        "' and username = '"+req.getUsername()+ "'";
 	        try {
                         PreparedStatement preStat = connection.prepareStatement(query);
                	        preStat.executeUpdate();
@@ -233,5 +235,28 @@ public class UserRequestHandler {
                         return new CheckAlertResponse(FAILURE, "Cannot access Items");
                 }
             }
+
+        public static BarChartResponse barChart_display(BarChart req, Connection connection){
+                String query = "Select * from inventory where username = '"+req.getUsername()+"'";
+                try {
+                        PreparedStatement preStat = connection.prepareStatement(query);
+                        ArrayList<BarChartResponse>out= new ArrayList<>();
+                        ResultSet result = preStat.executeQuery();
+                        while (result.next()) {
+                                String query2 = "Select * from product where productID = '"
+                                        + result.getString("productID") + "'";
+                                PreparedStatement preStat2 = connection.prepareStatement(query2);
+                                ResultSet result2 = preStat2.executeQuery();
+                                while (result2.next()) {
+                                        BarChartResponse bChartResponse = new BarChartResponse(SUCCESS,"Result is ",result2.getString("name"),result2.getInt("price"),
+                                                result2.getInt("threshold"),result.getInt("quantity"));
+                                        out.add(bChartResponse);
+                                }
+                        }
+                        return new BarChartResponse(ALERT, "Found Item:", out);
+                } catch (SQLException e) {
+                        return new BarChartResponse(FAILURE, "Cannot access Items");
+                }
+        }
 
 }

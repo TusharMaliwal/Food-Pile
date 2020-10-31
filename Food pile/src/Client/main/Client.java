@@ -1,9 +1,11 @@
 package Client.main;
 
+import common.requests.Charts.BarChart;
 import common.requests.Funct.*;
 import common.requests.Request;
 import common.requests.auth.LoginRequest;
 import common.requests.auth.SignupRequest;
+import common.responses.Charts.BarChartResponse;
 import common.responses.Funct.*;
 import common.responses.Response;
 import common.responses.ResponseCode;
@@ -111,7 +113,8 @@ public class Client {
             System.out.println("Enter 3 to remove items from the inventory");
             System.out.println("Enter 4 to search items in the inventory");
             System.out.println("Enter 5 to sort and display items in the inventory");
-            System.out.println("enter 6 to Quit");
+            System.out.println("Enter 6 to analyze inventory using bar charts");
+            System.out.println("enter 7 to Quit");
             choice = Integer.parseInt(bufferedReader.readLine());
             switch (choice) {
                 case 1: {
@@ -193,15 +196,24 @@ public class Client {
                     }
                     break;
                 }
-                case 6: {
+                case 6:{
+                    Request req = new BarChart(username);
+                    objectOutputStream.writeObject(req);
+                    objectOutputStream.flush();
+                    BarChartResponse res = (BarChartResponse) objectInputStream.readObject();
+                    Stage stage;
+                    BarChartExample(stage,res.getDetail());
+                    break;
+                }
+                case 7: {
                     System.out.println("EXIT POINT");
                     break;
                 }
                 default: {
-                    System.out.println("please enter a valid choice(1/2/3/4/5/6)");
+                    System.out.println("please enter a valid choice(1/2/3/4/5/6/7)");
                 }
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 

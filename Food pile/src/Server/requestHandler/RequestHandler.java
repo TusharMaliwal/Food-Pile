@@ -1,5 +1,6 @@
 package Server.requestHandler;
 
+import common.requests.Charts.BarChart;
 import common.requests.Request;
 //import common.requests.auth.LoginRequest;
 //import common.requests.auth.SignupRequest;
@@ -49,7 +50,9 @@ public class RequestHandler {
         else if (req instanceof CheckAlert){
             return UserRequestHandler.check_alert((CheckAlert) req,connection);
         }
-
+        else if(req instanceof BarChart){
+            return UserRequestHandler.barChart_display((BarChart)req, connection);
+        }
         else{
             return null;
         }
