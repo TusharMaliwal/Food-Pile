@@ -11,6 +11,7 @@ import common.responses.Response;
 import common.responses.ResponseCode;
 import common.responses.auth.LoginResponse;
 import common.responses.auth.SignupResponse;
+import sample.BarChartExample;
 
 
 import java.io.InputStreamReader;
@@ -73,7 +74,7 @@ public class Client {
                 System.out.println("Enter correct choice (1/2)");
             }
         }
-        String finalUsername = username;
+        String finalUsername = username;//for alert system
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -144,7 +145,7 @@ public class Client {
                 case 3: {
                     System.out.println("enter the productID of the product  to be deleted");
                     String productID = bufferedReader.readLine();
-                    Request req = new DeleteItem(username, productID);
+                    Request req = new DeleteItem( username, productID);
                     objectOutputStream.writeObject(req);
                     objectOutputStream.flush();
                     Response res = (DeleteItemResponse) objectInputStream.readObject();
@@ -201,8 +202,7 @@ public class Client {
                     objectOutputStream.writeObject(req);
                     objectOutputStream.flush();
                     BarChartResponse res = (BarChartResponse) objectInputStream.readObject();
-                    Stage stage;
-                    BarChartExample(stage,res.getDetail());
+                    new BarChartExample(res.getDetail());
                     break;
                 }
                 case 7: {

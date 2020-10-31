@@ -6,7 +6,7 @@ public class DeleteItem extends Request {
     private String username;
     private String productID;
     
-    public DeleteItem(String usename,String productID){
+    public DeleteItem(String username,String productID){
         this.username=username;
         this.productID=productID;
     }

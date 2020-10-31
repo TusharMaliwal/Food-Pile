@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.util.Collections;
+import java.util.Comparator;
 
 import common.requests.Charts.BarChart;
 import common.requests.auth.SignupRequest;
@@ -105,12 +105,12 @@ public class UserRequestHandler {
 
         public static DeleteItemResponse delete (DeleteItem req,Connection connection) {
 
-                String query = "Delete from inventory where productID = '" +req.getProductID()+
-                        "' and username = '"+req.getUsername()+ "'";
+                String query = "Delete from Inventory WHERE username ='"
+                        +req.getUsername()+"' AND productID = '"+req.getProductID()+"'";
 	        try {
-                        PreparedStatement preStat = connection.prepareStatement(query);
-               	        preStat.executeUpdate();
-                        return new DeleteItemResponse(SUCCESS, "Items successfully Deleted.");
+	                PreparedStatement preStat = connection.prepareStatement(query);
+	                preStat.executeUpdate();
+	                return new DeleteItemResponse(SUCCESS, "Items successfully Deleted.");
 	        }catch (SQLException e) {
 	                return new DeleteItemResponse(FAILURE, "Cannot find item.");
 	        }
@@ -173,14 +173,22 @@ public class UserRequestHandler {
                                 ResultSet result2 = preStat2.executeQuery();
                                 while (result2.next()) {// traversing product table to get price corresponding each productID
                                         //adding details if item in product table and inventory table is same
-                                        out.add("Product price is " + result2.getInt("price") + " Product name is "
+                                        out.add(result2.getInt("price") + ", is the Product price and Product name is "
                                                 + result2.getString("name") + " Product Category is "
                                                 + result2.getString("category")+" productID is "
                                                 +result2.getString("productID")+"\n");
 
                                 }
                         }
-                        Collections.sort(out);//sorting by price
+                        Collections.sort(out, new Comparator<String>() {//for sorting with respect to price
+                                @Override
+                                public int compare(String s1, String s2) {
+                                        int s1int = Integer.parseInt(s1.substring(0, s1.indexOf(",")));
+                                        int s2int = Integer.parseInt(s2.substring(0, s2.indexOf(",")));
+                                        return s1int - s2int;
+                                }
+                        });
+
                         return new DisplayPriceResponse(SUCCESS, "Here are your results.", out);
                 }catch (SQLException e) {
                        return new DisplayPriceResponse(FAILURE, "Invalid ");
@@ -258,5 +266,6 @@ public class UserRequestHandler {
                         return new BarChartResponse(FAILURE, "Cannot access Items");
                 }
         }
+
 
 }
