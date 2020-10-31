@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="505.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_displayprice">
+      <Label fx:id="headLabel" layoutX="138.0" layoutY="14.0" text="Display by Price!">
+         <font>
+            <Font name="System Bold Italic" size="41.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="displayArea" layoutX="41.0" layoutY="170.0" prefHeight="207.0" prefWidth="542.0" />
+      <Button fx:id="backButton" layoutX="258.0" layoutY="386.0" mnemonicParsing="false" onAction="#backListener" prefHeight="33.0" prefWidth="68.0" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="logoutButton" layoutX="253.0" layoutY="434.0" mnemonicParsing="false" onAction="#logoutListener" prefHeight="38.0" prefWidth="78.0" text="LogOut">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+   <TextField fx:id="usernameTextField" layoutX="218.0" layoutY="84.0" promptText="Enter Username" />
+   <Button fx:id="submitButton" layoutX="258.0" layoutY="121.0" mnemonicParsing="false" onAction="#submitListener" prefHeight="38.0" prefWidth="68.0" text="Submit">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+   </Button>
+</AnchorPane>
