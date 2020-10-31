@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="367.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_Error">
+      <Label fx:id="headLabel1" layoutX="234.0" layoutY="35.0" text="Error :(">
+         <font>
+            <Font name="System Bold Italic" size="41.0" />
+         </font>
+      </Label>
+      <Label fx:id="headLabel2" layoutX="164.0" layoutY="122.0" text="Oops!!Something went wrong :(">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="263.0" layoutY="200.0" onAction="#backListener" mnemonicParsing="false" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="logoutButton" layoutX="251.0" layoutY="265.0" onAction="#logoutListener" mnemonicParsing="false" text="LogOut">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+</AnchorPane>

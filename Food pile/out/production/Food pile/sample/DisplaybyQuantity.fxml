@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="471.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_displayquantity">
+      <Label fx:id="headLabel" layoutX="143.0" layoutY="14.0" text="Display by Category!">
+         <font>
+            <Font name="System Bold Italic" size="39.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="displayArea" layoutX="33.0" layoutY="149.0" prefHeight="215.0" prefWidth="539.0" />
+      <Button fx:id="backButton" layoutX="275.0" layoutY="378.0" mnemonicParsing="false" onAction="#backListener" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="logoutButton" layoutX="267.0" layoutY="425.0" mnemonicParsing="false" onAction="#logoutListener" text="LogOut">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+   <TextField fx:id="usernameTextField" layoutX="226.0" layoutY="77.0" promptText="Enter Username" />
+   <Button fx:id="submitButton" layoutX="265.0" layoutY="108.0" mnemonicParsing="false" onAction="#submitListener" text="Submit">
+      <font>
+         <Font name="System Bold Italic" size="15.0" />
+      </font>
+   </Button>
+</AnchorPane>

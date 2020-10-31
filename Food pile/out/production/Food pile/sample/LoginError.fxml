@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_loginerror">
+      <Label fx:id="headLabel1" layoutX="230.0" layoutY="40.0" text="Error :(">
+         <font>
+            <Font name="System Bold Italic" size="43.0" />
+         </font>
+      </Label>
+      <Label fx:id="headLabel2" layoutX="129.0" layoutY="126.0" text="Oops!! Username or Password is incorrect">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="retryButton" layoutX="244.0" layoutY="200.0" mnemonicParsing="false" onAction="#retryListener" prefHeight="39.0" prefWidth="111.0" text="Retry">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+</AnchorPane>

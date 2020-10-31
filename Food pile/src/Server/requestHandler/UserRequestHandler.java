@@ -90,8 +90,8 @@ public class UserRequestHandler {
 
         public static UpdateItemsResponse update (UpdateItems req,Connection connection) {
 
-                    String query = "update Inventory Set quantity = " + req.getQuantity() +
-                            " where productID = " + req.getProductID() + " and username = "+req.getUsername()+"";
+                    String query = "update Inventory Set quantity = '" + req.getQuantity() +
+                            "' where productID = '" + req.getProductID() + "' and username = '"+req.getUsername()+"'";
 		        try {
 		                PreparedStatement preStat = connection.prepareStatement(query);
 		                preStat.executeUpdate();

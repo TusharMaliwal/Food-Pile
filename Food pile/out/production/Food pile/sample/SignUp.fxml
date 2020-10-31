@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_signup">
+      <Label fx:id="headLabel" layoutX="212.0" layoutY="14.0" prefHeight="72.0" prefWidth="187.0" text="Register">
+         <font>
+            <Font name="System Bold Italic" size="46.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstnameLabel" layoutX="184.0" layoutY="120.0" text="First Name:">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastnameLabel" layoutX="184.0" layoutY="164.0" text="Last Name:">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="usernameLabel" layoutX="184.0" layoutY="207.0" text="Username:">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordLabel" layoutX="184.0" layoutY="248.0" text="Password:">
+      <font>
+         <Font name="System Italic" size="12.0" />
+      </font></Label>
+      <TextField fx:id="firstnameTextField" layoutX="250.0" layoutY="116.0" promptText="Enter FirstName" />
+      <TextField fx:id="lastnameTextField" layoutX="250.0" layoutY="160.0" promptText="Enter LastName" />
+      <TextField fx:id="usernameTextField" layoutX="250.0" layoutY="203.0" promptText="Enter Username" />
+      <Button fx:id="signupButton" layoutX="274.0" layoutY="303.0" mnemonicParsing="false" onAction="#signupListener" text="SignUp">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="passwordField" layoutX="250.0" layoutY="244.0" promptText="Enter Password" />
+</AnchorPane>
