@@ -88,7 +88,7 @@ public class Client {
                                 String filePath = "alert_audio.wav";
                                 SimpleAudioPlayer audioPlayer = new SimpleAudioPlayer(filePath);
                                 audioPlayer.play();
-                                Thread.sleep(5000);
+                                Thread.sleep(5000);//audio play for 5 seconds
                                 audioPlayer.stop();
                             } catch (Exception ex) {
                                 System.out.println("Error with playing sound.");
